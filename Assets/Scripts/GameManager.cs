@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Text scoreText;
+    public Text scoreUIText;
     public Text highScoreText;
     public GameObject pauseMenu;
     public int score = 0;
@@ -14,13 +15,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         highScore = PlayerPrefs.GetInt("HighScore", 0);
-        highScoreText.text = "High Score: " + highScore.ToString();
+        highScoreText.text = "" + highScore.ToString();
     }
 
     public void IncreaseScore()
     {
         score++;
         scoreText.text = score.ToString();
+        scoreUIText.text = score.ToString();
 
         if (score > highScore)
         {

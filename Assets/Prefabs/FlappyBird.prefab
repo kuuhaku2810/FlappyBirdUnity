@@ -108,6 +108,10 @@ MonoBehaviour:
   gameOver: {fileID: 0}
   bullet: {fileID: 0}
   slow: {fileID: 0}
+  flash: {fileID: 0}
+  imageCoolDown: {fileID: 0}
+  cdTime: 2
+  isCoolDown: 0
   jumpSound: {fileID: 8300000, guid: c711c93bba9404344953a4a2af997b6a, type: 3}
   gameOverSound: {fileID: 8300000, guid: 301aaa1eaf1eccc429150a50eafef2aa, type: 3}
   scoreSound: {fileID: 8300000, guid: 0b0d665da8380e149a557d1c2e5c6335, type: 3}

@@ -53,7 +53,7 @@ public class BirdController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && activeNum == 0)
         {
-            Time.timeScale = 1;
+            Time.timeScale = 1.0f;
             birdActive = SetActive.Alive;
             activeNum++;
         }

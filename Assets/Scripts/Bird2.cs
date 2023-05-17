@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class Bird2 : Bird
 {
-    [SerializeField] private Image imageCoolDown;
-    [SerializeField] private float cdTime = 0.3f;
-    private bool isCoolDown = false;
     public AudioClip gunSound;
 
     public GameObject bulletPrefab;
@@ -24,9 +21,12 @@ public class Bird2 : Bird
 
     public override void Update()
     {
-        Gun();
         birdMove();
         CheckCollision();
+        if (Option.GetBird() == 2)
+        {
+            Gun();
+        }
     }
 
     public void Gun()

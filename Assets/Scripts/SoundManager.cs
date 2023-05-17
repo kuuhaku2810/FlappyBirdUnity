@@ -64,11 +64,11 @@ public class SoundManager : MonoBehaviour
 
     private void Load()
     {
-        muted = PlayerPrefs.GetString("muted") == "true";
+        muted = PlayerPrefs.GetInt("muted") == 1;
     }
 
     private void Save()
     {
-        PlayerPrefs.SetString("muted", muted ? "true" : "false");
+        PlayerPrefs.SetInt("muted", muted ? 1 : 0);
     }
 }

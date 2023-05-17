@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class Bird3 : Bird
 {
-    [SerializeField] private Image imageCoolDown;
-    [SerializeField] private float cdTime = 3f;
-    private bool isCoolDown = false;
-
     public override void Awake()
     {
 
@@ -23,7 +19,11 @@ public class Bird3 : Bird
     {
         birdMove();
         CheckCollision();
-        Slow();
+        
+        if (Option.GetBird() == 3)
+        {
+            Slow();
+        }
     }
 
     public void Slow()
@@ -41,7 +41,7 @@ public class Bird3 : Bird
             {
                 imageCoolDown.fillAmount = 0;
 
-                Time.timeScale = 1f;
+                Time.timeScale = 1.0f;
                 isCoolDown = false;
             }
         }
