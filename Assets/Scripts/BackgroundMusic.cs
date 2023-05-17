@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BackgroundMusic : MonoBehaviour
 {
     private static BackgroundMusic backgroundMusic;
+    private AudioSource audioSource;
 
     private void Awake()
     {
-        if(backgroundMusic == null)
+        if (backgroundMusic == null)
         {
             backgroundMusic = this;
             DontDestroyOnLoad(backgroundMusic);
@@ -18,5 +16,18 @@ public class BackgroundMusic : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true;
+    }
+
+    public void PlayMusic()
+    {
+        audioSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        audioSource.Stop();
     }
 }

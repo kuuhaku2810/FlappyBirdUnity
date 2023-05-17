@@ -17,22 +17,22 @@ public class Option : MonoBehaviour
     }
     public void SlectBird()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadScene("StartMenu");
     }
     public void Play1()
     {
         birdStyle = 1;
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene("MainMenu");
     }
     public void Play2()
     {
         birdStyle = 2;
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene("MainMenu");
     }
     public void Play3()
     {
         birdStyle = 3;
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene("MainMenu");
     }
     public static int GetBird()
     {

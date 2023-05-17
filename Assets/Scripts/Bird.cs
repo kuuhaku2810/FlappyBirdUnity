@@ -102,8 +102,8 @@ public class Bird : MonoBehaviour
         {
             BirdController.birdActive = BirdController.SetActive.Dead;
             gameOver.gameObject.SetActive(true);
-            SoundManager.instance.PlaySound(gameOverSound);
             Time.timeScale = 0.0f;
+            SoundManager.instance.PlaySound(gameOverSound);
         }
 
         if (pipe.transform.position.x <= -4.0f && pipe.transform.position.x >= -6.0f)

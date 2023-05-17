@@ -6,39 +6,37 @@ using UnityEngine.SceneManagement;
 public class PauseGame : MonoBehaviour
 {
     [SerializeField] private Canvas pauseGame;
-    // Start is called before the first frame update
+    private BackgroundMusic backgroundMusic;
+
     void Start()
     {
         pauseGame.gameObject.SetActive(false);
+        backgroundMusic = FindObjectOfType<BackgroundMusic>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (BirdController.birdActive == BirdController.SetActive.Dead)
         {
             return;
         }
+
         if (BirdController.birdActive == BirdController.SetActive.Alive)
         {
             if (Input.GetKeyUp(KeyCode.Escape))
             {
-                pauseGame.gameObject.SetActive(true);
-                BirdController.birdActive = BirdController.SetActive.Dead;
-                Time.timeScale = 0;
+                Pause();
             }
         }
         else
         {
             if (Input.GetKeyUp(KeyCode.Escape))
             {
-                pauseGame.gameObject.SetActive(false);
-                BirdController.birdActive = BirdController.SetActive.Alive;
-                Time.timeScale = 1;
+                Resume();
             }
         }
-
     }
+
     public void Pause()
     {
         if (BirdController.birdActive == BirdController.SetActive.Dead)
@@ -47,18 +45,32 @@ public class PauseGame : MonoBehaviour
         }
         pauseGame.gameObject.SetActive(true);
         BirdController.birdActive = BirdController.SetActive.Dead;
+        Time.timeScale = 0;
     }
-    public void Remuse()
+
+    public void Resume()
     {
         pauseGame.gameObject.SetActive(false);
         BirdController.birdActive = BirdController.SetActive.Alive;
+        Time.timeScale = 1;
     }
+
     public void GoHome()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadScene("StartMenu");
+
+        if (backgroundMusic != null)
+        {
+            Destroy(backgroundMusic.gameObject);
+        }
     }
+
     public void Replay()
     {
-        SceneManager.LoadSceneAsync(1);
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.PlayMusic();
+        }
+        SceneManager.LoadScene("MainMenu");
     }
 }
